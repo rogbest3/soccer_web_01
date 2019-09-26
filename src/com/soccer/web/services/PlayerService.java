@@ -5,6 +5,8 @@ import java.util.List;
 import com.soccer.web.domains.PlayerBean;
 
 public interface PlayerService {
+	// 1. 로그인
+	public PlayerBean login(PlayerBean param);
 	/**
 	 * 2. 포지션 종류(중복제거, 없으면 빈공간)
 	 * 	return 타입이 한 column만이면 List<String>

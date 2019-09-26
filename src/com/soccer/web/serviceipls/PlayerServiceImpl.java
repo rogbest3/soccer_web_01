@@ -18,6 +18,17 @@ public class PlayerServiceImpl implements PlayerService{
 	private PlayerServiceImpl() {} // private 으로 바꿔서 new 못씀
 
 	@Override
+	public PlayerBean login(PlayerBean param) {
+		
+		System.out.println("5. PlayerServiceImpl");
+		System.out.println(String.format("param 값 출력 : %s, %s", 
+				param.getPlayerId(),
+				param.getSolar()));
+
+		return PlayerDaoImpl.getInstance().selectByPlayerIdSolar(param);
+	}
+	
+	@Override
 	public List<String> findPositions() {
 	//	List<String> positions = PlayerDaoImpl.getInstance().selectPositions();
 		return PlayerDaoImpl.getInstance().selectPositions();
@@ -36,6 +47,7 @@ public class PlayerServiceImpl implements PlayerService{
 		
 		return players;
 	}
+
 	
 	
 	

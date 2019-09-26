@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.soccer.web.command.Command;
+import com.soccer.web.command.Commander;
+import com.soccer.web.command.Receiver;
+import com.soccer.web.command.Sender;
 import com.soccer.web.domains.PlayerBean;
 import com.soccer.web.serviceipls.PlayerServiceImpl;
 import com.soccer.web.services.PlayerService;
@@ -17,37 +21,19 @@ import com.soccer.web.services.PlayerService;
 @WebServlet("/player.do")
 public class PlayerController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+							// 파라미터도 지역변수이기 때문에 request, response도 use관계
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	//	PlayerService pService = new PlayerServiceImpl();
-		PlayerBean param = null;
-
-		switch (request.getParameter("action")) {
-		case "move": break;
-
-		case "find2" :
-            request.setAttribute("positions", 
-            		PlayerServiceImpl.getInstance().findPositions());
-			break;
-			
-		case "find4" :
-			param = new PlayerBean();
-			param.setTeamId(request.getParameter("teamId"));
-			param.setPosition(request.getParameter("position"));
-            request.setAttribute("players", PlayerServiceImpl.getInstance().findByTeamIdPosition(param));
-			break;
-				
-		case "find5" :
-			param = new PlayerBean();	
-			param.setTeamId(request.getParameter("teamId"));
-			param.setHeight(request.getParameter("height"));
-			param.setPlayerName(request.getParameter("playerName"));
-			request.setAttribute("players", PlayerServiceImpl.getInstance().findByTeamIdHeightPlayerName(param));
-			break;
-		}
 		
-		String page = request.getParameter("page");
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/" + page + ".jsp");
-		rd.forward(request, response);
+		// playerId solar action page
+		System.out.println("1. 서블릿 들어옴");
+		System.out.println(String.format("request 값 출력 : %s, %s, %s, %s", 
+				request.getParameter("playerId"),
+				request.getParameter("solar"),
+				request.getParameter("action"),
+				request.getParameter("page")));
+		
+		Receiver.init(request);
+		Sender.forward(request, response);
+		
 	}
 }
