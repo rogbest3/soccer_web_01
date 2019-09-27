@@ -33,7 +33,7 @@ public class LoginCommand extends Command {
 		
 		System.out.println("8. DB에서 커맨드로 전달된 로그인 객체 : " + pb.toString());
 		
-		if (pb.getPlayerId()==null) {
+		if ( pb.getPlayerId() == null ) {
 			setPage("fail");
 			System.out.println("로그인 실패");
 		}else {

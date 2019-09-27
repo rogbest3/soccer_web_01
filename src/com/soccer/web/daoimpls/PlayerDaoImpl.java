@@ -93,7 +93,7 @@ public class PlayerDaoImpl implements PlayerDao{
 				pb.setWeight(rs.getString("WEIGHT"));
 
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		System.out.println("7. 반환된 결과값 : " + pb.toString() );
