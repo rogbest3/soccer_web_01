@@ -24,6 +24,7 @@ public class MoveCommand extends Command{
 	@Override
 	public void execute() {
 		setPage(request.getParameter("page"));
+		System.out.println("MoveCommand_execute page : "+ request.getParameter("page"));
 		super.execute();
 	}
 }

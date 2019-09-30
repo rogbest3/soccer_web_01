@@ -40,7 +40,9 @@ public class LoginCommand extends Command {
 			setPage(request.getParameter("page"));
 			System.out.println("로그인 성공");
 		}
-
+		
+	//	setPage(( pb.getPlayerId() == null ) ? "fail" :	request.getParameter("page"));
+		
 		super.execute();
 	}
 }

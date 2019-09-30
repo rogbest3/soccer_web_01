@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>soccer</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-</head>
-<body>
+    
+<jsp:include page="../common/head.jsp"/>
+
 	<h2><a id="link1" href="#">포지션 종류 보기</a></h2>
 	<!-- 4. 팀아이디로 해당 팀의 포지션별 선수 검색 기능 예)수원팀(ID: K02), 골키퍼  -->
 	<h2>4.팀아이디로 해당 팀의 포지션별 선수 검색</h2>
@@ -40,5 +35,4 @@
 
 	});
 </script>
-</body>
-</html>
+<jsp:include page="../common/foot.jsp"/>

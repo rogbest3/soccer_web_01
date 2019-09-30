@@ -1,44 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>Soccer</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="${js}/app.js"></script>
-</head>
-<body>
-<div id="wrapper" style="width:100%; height:100%">
-	<h2 style="width : 300px; margin: 0 auto">축구협회관리시스템</h2>
-	<img src="${img}/soccer_intro.jpg" style="width:100%; height:400px; margin-top: 10px" alt="" />
 
-	
-	<form id="login_form" >
-		<table border="1" style="width:500px; height:200px; margin: 100px auto">
-			<tr>
-				<td style="width: 300px">
-					USERNAME<input type="text" name="playerId" style="width: 100%"/>
-				</td>
-				<td rowspan="2"><input type="submit" value="로그인" style="width: 100%; height:100%"/></td>
-			</tr>
-			<tr>
-				<td>
-					PASSWORD<input type="text" name="sola
-					r" style="width: 100%"/>
-				</td>
-			</tr>
-		</table>
+<jsp:include page="../common/head.jsp"/>
+<div>1<h2 style="width : 300px; margin: 0 auto">축구협회관리시스템</h2></div>
+<div>
+	<img id="soccer_intro" src="${img}/soccer_intro.jpg" alt="" />
+</div>
+<div>3</div>
+<div>4</div>
+<div>
+	<form id="login_form" style="width: 100%; height: 100%">
+		<div class="login_tab">
+			<div id="login_tab_item1">
+				SERNAME<input id="username" class="input_text" type="text" name="playerId"/>
+			</div>
+			<div id="login_tab_item2">
+				<input id="login_btn" type="button" value="로그인"/>
+			</div>
+			<div id="login_tab_item3">
+				PASSWORD<input id="userpassword" class="input_text" type="text" name="solar"/>
+			</div>
+			
+		</div>
 		<input type="hidden" name="action" value="login"/>
 		<input type="hidden" name="page" value="home" />
 	</form>
-
-	<h3 style="width : 100px; margin: 0 auto">
-		<a id="a_join" href="#">회원가입</a>
-	</h3>	
 </div>
+<div>6</div>
+<div>7</div>
+<div>
+	<h3 id="join_a">
+		<a id="a_join" href="#">회원가입</a>
+	</h3>
+</div>
+<div>9</div>
+<jsp:include page="../common/foot.jsp"/>
 <script>
 	app.init('${ctx}');
 </script>
-</body>
-</html>  
