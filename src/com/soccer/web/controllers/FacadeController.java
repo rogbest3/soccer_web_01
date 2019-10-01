@@ -59,7 +59,13 @@ public class FacadeController extends HttpServlet {
 
 		System.out.println("main_folder : " + request.getAttribute("main_folder"));
 		
-		switch (request.getAttribute("main_folder").toString()) {
+		request
+		.getRequestDispatcher(String.format(Constants.DOUBLE_PATH, 
+											request.getServletPath()
+											.substring(1, request.getServletPath().indexOf(".")),
+											"main"))
+		.forward(request, response);
+	/**	switch (request.getAttribute("main_folder").toString()) {
 		case "facade":
 			System.out.println("facade 이동");
 			request
@@ -82,5 +88,11 @@ public class FacadeController extends HttpServlet {
 			break;
 		}
 
+		request
+		.getRequestDispatcher(String.format(Constants.DOUBLE_PATH, 
+											request.getAttribute("main_folder"),
+											"main"))
+		.forward(request, response);
+*/	
 	}
 }

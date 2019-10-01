@@ -35,7 +35,7 @@ var playerService = (()=>{
 				if($('#username').val() === '' || $('#userpassword').val() === ''){
 					alert('필수 값이 없습니다.');
 				}else{
-					$('#login_form').attr('action', ctx + '/facade.do');
+					$('#login_form').attr('action', ctx + '/player.do');
 					$('#login_form').submit();
 				}
 			});
