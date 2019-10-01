@@ -5,6 +5,8 @@ import java.util.List;
 import com.soccer.web.domains.PlayerBean;
 
 public interface PlayerService {
+	// 0. 회원가입
+	public boolean joinPlayer(PlayerBean param);
 	// 1. 로그인
 	public PlayerBean login(PlayerBean param);
 	/**

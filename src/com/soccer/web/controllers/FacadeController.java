@@ -34,16 +34,53 @@ public class FacadeController extends HttpServlet {
 											: "/resources/" + r.toString().toLowerCase()));
 
 		}	
-		System.out.println(request.getContextPath());
-		// session.setAttribute("img", request.getContextPath() + "/resources/img");
 
-		request
-		.getRequestDispatcher(String.format(Constants.DOUBLE_PATH, 
-											request.getServletPath()
-											.substring(1, request.getServletPath().indexOf(".")),
-											"login"))
-		.forward(request, response);
+		// session.setAttribute("img", request.getContextPath() + "/resources/img");
+/**		if(request.getParameter("page") == null) {
+			request.setAttribute("page", "login");
+		}else {
+			request.setAttribute("page", request.getParameter("page"));
+		}
+*/
+		String page = request.getParameter("page") == null
+					  ? "login"
+					  : request.getParameter("page");
 		
-	}
+		request.setAttribute("page", page);
+				
+		System.out.println("fcon" + request.getServletPath());
+		
+
+		String mainFolder = request.getParameter("main_folder") == null
+				  ? "facade"
+				  : request.getParameter("main_folder");
 	
+		request.setAttribute("main_folder", mainFolder);
+
+		System.out.println("main_folder : " + request.getAttribute("main_folder"));
+		
+		switch (request.getAttribute("main_folder").toString()) {
+		case "facade":
+			System.out.println("facade 이동");
+			request
+			.getRequestDispatcher(String.format(Constants.DOUBLE_PATH, 
+												request.getServletPath()
+												.substring(1, request.getServletPath().indexOf(".")),
+												"main"))
+			.forward(request, response);
+			break;
+			
+		case "player":
+			System.out.println("player 이동");
+			request
+			.getRequestDispatcher(String.format(Constants.DOUBLE_PATH, 
+												"player",
+												"main"))
+			.forward(request, response);
+			break;
+		default:
+			break;
+		}
+
+	}
 }

@@ -10,11 +10,27 @@ html, body{
 	width : 100%;
 	height : 100%;
 	background-color : #80ff80;
-	grid-template-columns: 30% 40% 30%;
-	grid-template-rows: 20% 60% 20%;
+	grid-template-columns: 10% 80% 10%;
+	grid-template-rows: 10% 80% 10%;
 }
 
+.container{
+	display : grid;
+	width : 100%;
+	height : 100%;
+	grid-template-columns: 10% 80% 10%;
+	grid-template-rows: 10% 80% 10%;
+}
+.content{
+	display : grid;
+	width : 100%;
+	height : 100%;
+	grid-template-columns: 10% 80% 10%;
+	grid-template-rows: 10% 80% 10%;
+}
 .wrapper div{border: 1px dotted black}
+.container div{border: 2px dotted blue}
+.content div{border: 2px dotted red}
 
 #soccer_intro{
 	width:100%;

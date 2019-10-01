@@ -5,6 +5,8 @@ import java.util.List;
 import com.soccer.web.domains.PlayerBean;
 
 public interface PlayerDao {
+	// 0. 회원가입
+	public boolean insertPlayer(PlayerBean param);
 	// 1. 로그인
 	public PlayerBean selectByPlayerIdSolar(PlayerBean param);
 	/**

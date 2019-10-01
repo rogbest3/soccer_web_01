@@ -91,7 +91,6 @@ public class PlayerDaoImpl implements PlayerDao{
 				pb.setSolar(rs.getString("SOLAR"));
 				pb.setTeamId(rs.getString("TEAM_ID"));
 				pb.setWeight(rs.getString("WEIGHT"));
-
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -115,5 +114,34 @@ public class PlayerDaoImpl implements PlayerDao{
 			e.printStackTrace();
 		}
 		return p;
+	}
+	@Override
+	public boolean insertPlayer(PlayerBean param) {
+		boolean flag = false;
+		String sql = "INSERT INTO PLAYER(PLAYER_ID, PLAYER_NAME, TEAM_ID, SOLAR)\r\n" + 
+				"VALUES(?, ?, ?, ?)";
+		System.out.println("daoimpl 진입");
+		System.out.println("PLAYER_ID : " + param.getPlayerId());
+		System.out.println("PLAYER_NAME : " + param.getPlayerName());
+		System.out.println("TEAM_ID : " + param.getTeamId());
+		System.out.println("SOLAR : " + param.getSolar());
+		try {
+			PreparedStatement stmt = DatabaseFactory
+									  .createDadabase(Constants.VENDER)
+									  .getConnection()
+									  .prepareStatement(sql);
+			stmt.setString(1, param.getPlayerId());
+			stmt.setString(2, param.getPlayerName());
+			stmt.setString(3, param.getTeamId());
+			stmt.setString(4, param.getSolar());
+			
+			int rs = stmt.executeUpdate(); // CUD 시 executeUpdate() 사용
+			System.out.println("rs : " + rs);
+			flag = (rs == 1) ? true : false;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
 	}
 }
