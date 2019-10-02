@@ -5,7 +5,8 @@ var app = (()=>{
 			playerService.login(ctx);
 			playerService.join(ctx);	
 			playerService.moveJoin(ctx);
-		
+			playerService.search(ctx);
+			
 		}
 	};
 })();
@@ -36,6 +37,7 @@ var playerService = (()=>{
 					alert('필수 값이 없습니다.');
 				}else{
 					$('#login_form').attr('action', ctx + '/player.do');
+					$('#login_form').attr('method', 'POST');
 					$('#login_form').submit();
 				}
 			});
@@ -46,6 +48,7 @@ var playerService = (()=>{
 					alert('필수 값이 없습니다.');
 				}else{
 					$('#join_form').attr('action', ctx + '/player.do');
+					$('#join_form').attr('method', 'POST');
 					$('#join_form').submit();
 				}
 			});
@@ -54,7 +57,12 @@ var playerService = (()=>{
 			$('#a_join').click(()=>{
 				location.assign(ctx + '/facade.do?action=move&page=join');
 			});
-		} 
+		},
+		search : (ctx)=>{
+			$('#link1').click(()=>{
+				location.assign(ctx + '/player.do?action=search&page=2_positions');
+			});
+		}
 	};
 })();
 

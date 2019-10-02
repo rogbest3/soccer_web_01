@@ -19,8 +19,7 @@ public class Sender {
 			
 			System.out.println("도착지::"+Receiver.cmd.getView());
 					
-			request.setAttribute("page", "login");
-			
+			System.out.println("attr_page : "+ request.getAttribute("page"));
 			request
 			.getRequestDispatcher(Receiver.cmd.getView())	//	.jsp
 			.forward(request, response);

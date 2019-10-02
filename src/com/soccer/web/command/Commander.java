@@ -17,10 +17,12 @@ public class Commander {
 		
 		Command cmd = null;
 		switch (Action.valueOf(request.getParameter("action").toUpperCase())) {
-		case CREATE : cmd = new CreateCommand(request); break;
-		case SEARCH : cmd = new SearchCommand(request); break;
-		case UPDATE : cmd = new CreateCommand(request); break;
-		case DELETE : cmd = new CreateCommand(request); break;
+		case CREATE : cmd = new CreateCommand(request); 
+						break;
+		case SEARCH : System.out.println("커맨더 SEARCH 동작");
+			cmd = new SearchCommand(request); break;
+		case UPDATE : cmd = new UpdateCommand(request); break;
+		case DELETE : cmd = new DeleteCommand(request); break;
 		case MOVE 	: cmd = new MoveCommand(request); break;
 		case LOGIN  : cmd = new LoginCommand(request); break;
 		}

@@ -12,8 +12,8 @@ public class CreateCommand extends Command{
 		setDomain(request.getServletPath()
 				.substring(1, request.getServletPath().indexOf(".")));
 		setAction(request.getParameter("action"));
-		super.execute();
 		execute();
+
 	}
 	@Override
 	public void execute() {
@@ -39,6 +39,8 @@ public class CreateCommand extends Command{
 			System.out.println("회원가입 실패");
 		}
 		setPage(request.getParameter("page"));
-
+		System.out.println("setpage : " + request.getParameter("page"));
+		
+		super.execute();
 	}
 }

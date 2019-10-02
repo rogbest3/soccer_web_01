@@ -24,7 +24,6 @@
 
 	<input type="hidden" name="action" value="create"/>
 	<input type="hidden" name="page" value="main" />
-	<input type="hidden" name="main_folder" value="facade"/>
 	
 	<input id="join_btn" type="button" value="가입"/>
 </form>

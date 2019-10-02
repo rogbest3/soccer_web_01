@@ -37,14 +37,12 @@ public class LoginCommand extends Command {
 		String main_folder = "";
 		if ( pb.getPlayerId() == null ) {
 			setPage("fail");
-			System.out.println("로그인 실패");
 			main_folder = "facade";
+			System.out.println("로그인 실패");
 		}else {
 			setPage(request.getParameter("page"));
-
-			System.out.println("로그인 성공");
-			System.out.println("page : " + request.getParameter("page"));
 			main_folder = "player";
+			System.out.println("로그인 성공");
 		} 
 		
 		this.view = String.format(Constants.DOUBLE_PATH, main_folder, page);

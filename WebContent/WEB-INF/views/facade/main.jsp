@@ -6,7 +6,7 @@
 <jsp:include page="../common/head.jsp"/>
 
 <div class="container">
-<div></div> <div><h3>회원관리</h3></div> <div></div>
+<div></div> <div><h3>회원관리(facadeMain)</h3></div> <div></div>
 <div></div>
 
 <div class="content">

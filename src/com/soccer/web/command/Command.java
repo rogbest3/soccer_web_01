@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public class Command implements Order{
 
-	protected String action, domain, page, view;
+	protected String action, domain, page, view, main_folder;
 	protected HttpServletRequest request;
 	
 	@Override
@@ -20,6 +20,7 @@ public class Command implements Order{
 				request.getParameter("action"),
 				request.getParameter("page")));
 		
-		this.view = String.format(Constants.DOUBLE_PATH, request.getParameter("main_folder"), page);
+		System.out.println("domain : " + domain);
+		this.view = String.format(Constants.DOUBLE_PATH, "facade", page);
 	}
 }
